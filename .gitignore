@@ -1,0 +1,28 @@
+# Composer
+/vendor/
+composer.lock
+composer.phar
+
+# IDE
+/.idea/
+/.vscode/
+*.swp
+
+# PHP tooling
+/.phpunit.cache/
+/.phpunit.result.cache
+/.phpcs-cache
+/.php-cs-fixer.cache
+/.phpstan-cache/
+/coverage/
+/build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local env / credentials
+.env
+.env.*
+!.env.example
+auth.json
