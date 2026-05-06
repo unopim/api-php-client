@@ -45,4 +45,25 @@ class CategoryApi extends AbstractApi
     {
         return $this->put('/api/v1/rest/categories/' . urlencode($code), $data);
     }
+
+    /**
+     * Partially update a category by code.
+     *
+     * @param  array<string, mixed> $data
+     * @return array<string, mixed>
+     */
+    public function patch(string $code, array $data): array
+    {
+        return parent::patch('/api/v1/rest/categories/' . urlencode($code), $data);
+    }
+
+    /**
+     * Delete a category by code.
+     *
+     * @return array<string, mixed>
+     */
+    public function delete(string $code): array
+    {
+        return parent::delete('/api/v1/rest/categories/' . urlencode($code));
+    }
 }

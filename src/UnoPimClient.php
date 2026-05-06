@@ -248,6 +248,23 @@ final class UnoPimClient
     }
 
     /**
+     * @param  array<string, mixed> $payload
+     * @return array<string, mixed>
+     */
+    public function patch(string $endpoint, array $payload): array
+    {
+        return $this->request('PATCH', $endpoint, $payload);
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function delete(string $endpoint): array
+    {
+        return $this->request('DELETE', $endpoint);
+    }
+
+    /**
      * Fetch all pages and return a flat array of items.
      *
      * When the injected HTTP client is the built-in CurlClient, page 2+ are

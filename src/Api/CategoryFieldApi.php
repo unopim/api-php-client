@@ -45,4 +45,36 @@ class CategoryFieldApi extends AbstractApi
     {
         return $this->put('/api/v1/rest/category-fields/' . urlencode($code), $data);
     }
+
+    /**
+     * List options for a select/multiselect category field.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public function listOptions(string $code, int $limit = 100): array
+    {
+        return $this->fetchAll('/api/v1/rest/category-fields/' . urlencode($code) . '/options', $limit);
+    }
+
+    /**
+     * Create options for a category field.
+     *
+     * @param  array<string, mixed> $data
+     * @return array<string, mixed>
+     */
+    public function createOptions(string $code, array $data): array
+    {
+        return $this->post('/api/v1/rest/category-fields/' . urlencode($code) . '/options', $data);
+    }
+
+    /**
+     * Update options for a category field.
+     *
+     * @param  array<string, mixed> $data
+     * @return array<string, mixed>
+     */
+    public function updateOptions(string $code, array $data): array
+    {
+        return $this->put('/api/v1/rest/category-fields/' . urlencode($code) . '/options', $data);
+    }
 }

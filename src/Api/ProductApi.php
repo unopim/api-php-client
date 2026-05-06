@@ -62,4 +62,25 @@ class ProductApi extends AbstractApi
     {
         return $this->put('/api/v1/rest/products/' . urlencode($sku), $data);
     }
+
+    /**
+     * Partially update a product by sku.
+     *
+     * @param  array<string, mixed> $data
+     * @return array<string, mixed>
+     */
+    public function patch(string $sku, array $data): array
+    {
+        return parent::patch('/api/v1/rest/products/' . urlencode($sku), $data);
+    }
+
+    /**
+     * Delete a product by sku.
+     *
+     * @return array<string, mixed>
+     */
+    public function delete(string $sku): array
+    {
+        return parent::delete('/api/v1/rest/products/' . urlencode($sku));
+    }
 }

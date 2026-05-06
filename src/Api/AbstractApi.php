@@ -56,4 +56,21 @@ abstract class AbstractApi
     {
         return $this->client->put($endpoint, $payload);
     }
+
+    /**
+     * @param  array<string, mixed> $payload
+     * @return array<string, mixed>
+     */
+    protected function patch(string $endpoint, array $payload): array
+    {
+        return $this->client->patch($endpoint, $payload);
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function delete(string $endpoint): array
+    {
+        return $this->client->delete($endpoint);
+    }
 }

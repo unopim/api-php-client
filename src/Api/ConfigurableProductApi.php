@@ -62,4 +62,15 @@ class ConfigurableProductApi extends AbstractApi
     {
         return $this->put('/api/v1/rest/configrable-products/' . urlencode($sku), $data);
     }
+
+    /**
+     * Partially update a configurable product by sku/code.
+     *
+     * @param  array<string, mixed> $data
+     * @return array<string, mixed>
+     */
+    public function patch(string $sku, array $data): array
+    {
+        return parent::patch('/api/v1/rest/configrable-products/' . urlencode($sku), $data);
+    }
 }

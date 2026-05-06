@@ -41,4 +41,19 @@ class MediaFileApi extends AbstractApi
 
         return $this->client->uploadFile('/api/v1/rest/media-files/category', $filePath, $fields);
     }
+
+    /**
+     * Upload a swatch image for an attribute option.
+     *
+     * @return array<string, mixed>
+     */
+    public function uploadSwatchMedia(string $filePath, string $optionCode, string $attributeCode): array
+    {
+        $fields = [
+            'code'           => $optionCode,
+            'attribute_code' => $attributeCode,
+        ];
+
+        return $this->client->uploadFile('/api/v1/rest/media-files/swatch', $filePath, $fields);
+    }
 }
