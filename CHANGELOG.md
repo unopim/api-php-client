@@ -5,7 +5,7 @@ All notable changes to `unopim/api-php-client` will be documented here.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 and [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [1.0.1] — 2026-05-06
+## 1.0.1 — 2026-05-06
 
 ### Fixed
 - Media uploads now support `sku`/`code` identifiers and additional attribute fields
