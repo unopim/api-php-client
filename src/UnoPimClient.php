@@ -332,9 +332,12 @@ final class UnoPimClient
      * directly to cURL's native CURLFile support, which is the most reliable
      * approach for binary uploads.
      *
+     * @param string $endpoint
+     * @param string $filePath
+     * @param array $fields
      * @return array<string, mixed>
      */
-    public function uploadFile(string $endpoint, string $filePath): array
+    public function uploadFile(string $endpoint, string $filePath, array $fields = []): array
     {
         if (! file_exists($filePath)) {
             throw new \InvalidArgumentException("File not found: {$filePath}");
@@ -343,12 +346,15 @@ final class UnoPimClient
         $token = $this->getAccessToken();
         $url   = $this->baseUrl . $endpoint;
 
+        $postFields         = $fields;
+        $postFields['file'] = new \CURLFile($filePath);
+
         $ch = curl_init();
         curl_setopt_array($ch, [
             CURLOPT_URL            => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_POST           => true,
-            CURLOPT_POSTFIELDS     => ['file' => new \CURLFile($filePath)],
+            CURLOPT_POSTFIELDS     => $postFields,
             CURLOPT_HTTPHEADER     => [
                 'Accept: application/json',
                 'Authorization: Bearer ' . $token,
